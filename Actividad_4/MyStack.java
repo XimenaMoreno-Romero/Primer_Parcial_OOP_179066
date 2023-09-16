@@ -1,11 +1,11 @@
 package ACT4;
 import java.util.Stack;
-public class MyStrack {
+public class MyStack {
 	
 	int MAX, top ;
 	char[] stack;
 
-	public MyStrack(int size ) {
+	public MyStack(int size ) {
 	this.stack= new char[size];
 	top=0;
 	MAX = size;
@@ -34,7 +34,7 @@ public class MyStrack {
 		return (stack[top]) ;/*returns eliminated element*/
 	}
  }
- public  String invertirLaCadena(String str, MyStrack stack){
+ public  String invertirLaCadena(String str, MyStack stack){
      String stringInvertido = "";
      for (int i = 0; i < str.length(); i++) {
          stack.push(str.charAt(i));
@@ -54,7 +54,7 @@ public class MyStrack {
              stringParanoespacios = stringParanoespacios + str.toLowerCase().charAt(i);
          }
      }
-     MyStrack stackparaPalindromo = new MyStrack(stringParanoespacios.length());
+     MyStrack stackparaPalindromo = new MyStack(stringParanoespacios.length());
      for (int i = 0; i < stringParanoespacios.length(); i++) {
          stackparaPalindromo.push(stringParanoespacios.charAt(i));
      }
