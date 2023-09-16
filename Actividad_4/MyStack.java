@@ -1,5 +1,6 @@
 package ACT4;
 import java.util.Stack;
+import java.util.Scanner;
 public class MyStack {
 	
 	int MAX, top ;
@@ -10,9 +11,7 @@ public class MyStack {
 	top=0;
 	MAX = size;
 	
-	}
-	
-	
+	}	
  public void push(char value){
 	if(top == MAX)
 		System.out.println("Stack is full");
@@ -34,39 +33,38 @@ public class MyStack {
 		return (stack[top]) ;/*returns eliminated element*/
 	}
  }
- public  String invertirLaCadena(String str, MyStack stack){
-     String stringInvertido = "";
-     for (int i = 0; i < str.length(); i++) {
-         stack.push(str.charAt(i));
+ public static void invertirLaCadena(String frase) {
+     
+     Stack<Character> stack = new Stack<>();
+     for (int i = 0; i < frase.length(); i++) {
+         stack.push(frase.charAt(i));
      }
-     for (int i = 0; i < str.length(); i++) {
-         stringInvertido = stringInvertido + stack.pop();
+     System.out.print("Cadena Invertida: ");
+     while (!stack.isEmpty()) {
+         System.out.print(stack.pop());
      }
-     return stringInvertido;
+ }
+ public static void VerificarPalindromo(String frase) {
+	 
+     String fraseSinEspacios = frase.replaceAll("\\s+", "").toLowerCase();
+     Stack<Character> stack = new Stack<>();
+     
+     for (int i = 0; i < fraseSinEspacios.length(); i++) {
+         stack.push(fraseSinEspacios.charAt(i));
+     }
+     StringBuilder fraseYaInvertida = new StringBuilder();
+     while (!stack.isEmpty()) {
+    	 fraseYaInvertida.append(stack.pop());
+     }
+     if (fraseSinEspacios.equals(fraseYaInvertida.toString())) {
+         System.out.println(" "
+         		+ "La frase es Palindromo.");
+     } else {
+         System.out.println(" "
+         		+ "La frase no es Palindromo.");
+     }
  }
  
- public  boolean verificacionPalindromo(String str){
-     String stringParanoespacios = "";
-     String stringInvertido = "";
-     for (int i = 0; i < str.length(); i++) {
-         if (str.charAt(i) == ' '){
-         }else {
-             stringParanoespacios = stringParanoespacios + str.toLowerCase().charAt(i);
-         }
-     }
-     MyStrack stackparaPalindromo = new MyStack(stringParanoespacios.length());
-     for (int i = 0; i < stringParanoespacios.length(); i++) {
-         stackparaPalindromo.push(stringParanoespacios.charAt(i));
-     }
-     for (int i = 0; i <stringParanoespacios.length(); i++) {
-         stringInvertido = stringInvertido + stackparaPalindromo.pop();
-     }
-     if (stringInvertido.equals(stringParanoespacios)){
-         return true;
-     }else {
-         return false;
-     }
- }
 }
 
 
