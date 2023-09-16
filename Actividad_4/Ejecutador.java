@@ -1,42 +1,28 @@
-package actividad4;
-
-public class Ejecutador {
-	public void iniciarPrograma() {
-		MyStack newStack= new MyStack(8);
-		MyQueues newQueue= new MyQueues(5);
-		newStack.push(90);
-		newStack.push(80);
-		newStack.push(70);
-		newStack.print();
-
-		newStack.push(60);
-		newStack.push(50);
-		newStack.push(40);
-		newStack.push(30);
-		newStack.push(20);
-		newStack.pop();
-		newStack.print();
-		
-		//System.out.println();
-		//int x = newStack.pop();
-		//System.out.println(x);
-		newStack.pop();
-		newStack.pop();
-		newStack.pop();
-		newStack.pop();
-		newStack.pop();
-		newStack.pop();
-		newStack.pop();
-		
+package ACT4;
+import java.util.Scanner;
+public class Ejecucion {
 	
-		newQueue.insert(6);
-		newQueue.insert(3);
-		newQueue.insert(4);
-		newQueue.insert(3);
-		newQueue.insert(2);
-		newQueue.delete();
-		newQueue.delete();	
-		newQueue.delete();		
+	public void iniciarPrograma() {
+		String cadena, cadenayaInvertida = "";
+		MyStrack newStack= new MyStrack(4);
+		MyQueue newQueue= new MyQueue(5);
+		System.out.println("Bienvenido al programa de Stacks y Queues");
+		System.out.println("Escriba una frase");
+		Scanner input = new Scanner(System.in);
+        cadena = input.nextLine();
+        MyStrack stackparaInvertir = new MyStrack(cadena.length());
+        MyQueue queue1 = new MyQueue(cadena.length());
+        cadenayaInvertida = newStack.invertirLaCadena(cadena, stackparaInvertir);
+        
+        System.out.println(cadenayaInvertida);
+        if (newStack.verificacionPalindromo(cadena)){
+            System.out.println("La frase es un palindromo");
+        }else {
+            System.out.println("La frase no es un palindromo");
+        }
+       
+		
+		
 	}
-
 }
+
