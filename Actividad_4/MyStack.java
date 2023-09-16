@@ -1,18 +1,19 @@
-package actividad4;
-
-public class MyStack {
+package ACT4;
+import java.util.Stack;
+public class MyStrack {
 	
 	int MAX, top ;
-	int[] stack;
+	char[] stack;
 
-	public MyStack(int size ) {
-	this.top=0;
-	this.MAX = size;
-	this.stack= new int[size];
+	public MyStrack(int size ) {
+	this.stack= new char[size];
+	top=0;
+	MAX = size;
+	
 	}
 	
 	
- public void push(int value){
+ public void push(char value){
 	if(top == MAX)
 		System.out.println("Stack is full");
 	else {
@@ -20,7 +21,7 @@ public class MyStack {
 		top++; /* incrementa el valor de top */
 	}
  }
- public int pop() {
+ public char pop() {
 	 int value;
 	if (top == 0) {
 		System.out.println("Stack is empty");
@@ -30,14 +31,43 @@ public class MyStack {
 		value= stack[top-1];
 		top--; /*decreases top*/
 		stack[top]=0;
-		return(value);/*returns eliminated element*/
+		return (stack[top]) ;/*returns eliminated element*/
 	}
  }
- public void print() {
-	 for (int i=0;i<top;i++) {
-		 System.out.println("stack "+stack[i]);
-	 }
+ public  String invertirLaCadena(String str, MyStrack stack){
+     String stringInvertido = "";
+     for (int i = 0; i < str.length(); i++) {
+         stack.push(str.charAt(i));
+     }
+     for (int i = 0; i < str.length(); i++) {
+         stringInvertido = stringInvertido + stack.pop();
+     }
+     return stringInvertido;
+ }
+ 
+ public  boolean verificacionPalindromo(String str){
+     String stringParanoespacios = "";
+     String stringInvertido = "";
+     for (int i = 0; i < str.length(); i++) {
+         if (str.charAt(i) == ' '){
+         }else {
+             stringParanoespacios = stringParanoespacios + str.toLowerCase().charAt(i);
+         }
+     }
+     MyStrack stackparaPalindromo = new MyStrack(stringParanoespacios.length());
+     for (int i = 0; i < stringParanoespacios.length(); i++) {
+         stackparaPalindromo.push(stringParanoespacios.charAt(i));
+     }
+     for (int i = 0; i <stringParanoespacios.length(); i++) {
+         stringInvertido = stringInvertido + stackparaPalindromo.pop();
+     }
+     if (stringInvertido.equals(stringParanoespacios)){
+         return true;
+     }else {
+         return false;
+     }
  }
 }
+
 
 
