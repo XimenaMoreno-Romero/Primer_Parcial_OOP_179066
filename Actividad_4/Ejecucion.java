@@ -6,7 +6,7 @@ public class Ejecucion {
 		 System.out.print("Bienvenido al programa  Stakc y Queue ");
 		Scanner scanner = new Scanner(System.in);
         System.out.print("Escribe una frase:");
-        MyStrack stacktest=new MyStrack(5);
+        MyStack stacktest=new MyStack(5);
 		MyQueue queuetest= new MyQueue(5);
         String frase = scanner.nextLine();
         scanner.close();
