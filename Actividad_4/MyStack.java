@@ -1,70 +1,69 @@
-package ACT4;
-import java.util.Stack;
-import java.util.Scanner;
-public class MyStack {
-	
-	int MAX, top ;
-	char[] stack;
+package programa;
 
-	public MyStack(int size ) {
-	this.stack= new char[size];
-	top=0;
-	MAX = size;
+public class MyStack {
+	int MAX, top;
+	char [] stack;
 	
-	}	
- public void push(char value){
-	if(top == MAX)
-		System.out.println("Stack is full");
-	else {
-		stack[top] = value; /* agrega un elemento*/
-		top++; /* incrementa el valor de top */
+	public MyStack(int size) {
+		this.top = 0;
+		this.MAX = size;
+		this.stack = new char [size];
 	}
- }
- public char pop() {
-	 int value;
-	if (top == 0) {
-		System.out.println("Stack is empty");
-		return(0);
+	public void push(char data){
+		if(top == MAX) {
+			System.out.println("Stack is full");
+		}
+		else {
+				stack[top] = data; 
+				top++; 
+			}
 	}
-	else {
-		value= stack[top-1];
-		top--; /*decreases top*/
-		stack[top]=0;
-		return (stack[top]) ;/*returns eliminated element*/
+	public char pop(){
+		if(top == 0){
+			System.out.println("Stack is empty");
+			return(0);
+		}
+		else {
+			top--; /* decreases top */
+			return(stack[top]); /*returns eliminated element*/
+		}
 	}
- }
- public static void invertirLaCadena(String frase) {
-     
-     Stack<Character> stack = new Stack<>();
-     for (int i = 0; i < frase.length(); i++) {
-         stack.push(frase.charAt(i));
-     }
-     System.out.print("Cadena Invertida: ");
-     while (!stack.isEmpty()) {
-         System.out.print(stack.pop());
-     }
- }
- public static void VerificarPalindromo(String frase) {
-	 
-     String fraseSinEspacios = frase.replaceAll("\\s+", "").toLowerCase();
-     Stack<Character> stack = new Stack<>();
-     
-     for (int i = 0; i < fraseSinEspacios.length(); i++) {
-         stack.push(fraseSinEspacios.charAt(i));
-     }
-     StringBuilder fraseYaInvertida = new StringBuilder();
-     while (!stack.isEmpty()) {
-    	 fraseYaInvertida.append(stack.pop());
-     }
-     if (fraseSinEspacios.equals(fraseYaInvertida.toString())) {
-         System.out.println(" "
-         		+ "La frase es Palindromo.");
-     } else {
-         System.out.println(" "
-         		+ "La frase no es Palindromo.");
-     }
- }
- 
+	public static String inversorDelaFase(String frase, MyStack stack) {
+		String fraseInvertida = "";
+		for (int i = 0; i < frase.length(); i++) {
+			stack.push(frase.charAt(i));
+		}
+		for(int i = 0; i < frase.length(); i++) {
+			fraseInvertida = fraseInvertida + stack.pop();
+		}
+		return fraseInvertida;
+	}
+	public static boolean verificarPalindromo(String frase) {
+		String fraseSinEspacio = "";
+		String fraseInvertida = "";
+		for (int i = 0; i < frase.length(); i++) {
+			if (frase.charAt(i) == ' ') {
+	
+			}
+			else {
+				fraseSinEspacio = fraseSinEspacio + frase.toLowerCase().charAt(i);
+			}
+		}
+		
+		MyStack stackP = new MyStack(fraseSinEspacio.length());
+		for (int i = 0; i < fraseSinEspacio.length(); i++) {
+			stackP.push(fraseSinEspacio.charAt(i));
+		}
+		for (int i = 0; i < fraseSinEspacio.length(); i++) {
+			fraseInvertida = fraseInvertida + stackP.pop();
+		}
+		if (fraseInvertida.equals(fraseSinEspacio)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+       }
 }
 
 
