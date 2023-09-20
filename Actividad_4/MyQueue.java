@@ -1,8 +1,7 @@
-package ACT4;
+package programa;
 
 public class MyQueue {
-	
-	    int[] queue;
+	 int[] queue;
 	    int MAX;
 	    int tail;
 	    int Head;
@@ -31,6 +30,5 @@ public class MyQueue {
 	        }
 	    }
 }
-
 
 
