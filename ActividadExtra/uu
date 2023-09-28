@@ -1,0 +1,20 @@
+package extra;
+import java.util.Random;
+public class ActividadExt {
+public static void main (String[]args) {
+	int nombresImpresos=0;
+	String[] nombres= { "Richard", "Miranda","Teddy","Owen","Arizona","Callie", "Meredith","Chrisitna", "Derek","Alex","Izzie","Jackson","Mark","George","Amelia"};
+	boolean [] nombresYaImpresos= new boolean [nombres.length];
+	Random aleatorio= new Random ();
+	System.out.println("Lista de nombres ");
+	while (nombresImpresos<nombres.length) {
+		int nombresAleatorios=aleatorio.nextInt(nombres.length);
+		 if (!nombresYaImpresos[nombresAleatorios]){
+			 System.out.println(nombres[nombresAleatorios]);
+			 nombresYaImpresos[nombresAleatorios]= true;
+			  nombresImpresos++;
+			 
+		 }
+	}
+}
+}
