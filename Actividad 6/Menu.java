@@ -5,7 +5,7 @@ public class Menu {
     public void menudeEjecucionCompleta() {
     	
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Bienvenido al juego Adivina Quién");
+        System.out.println("Bienvenido");
 
         System.out.print("Por favor, ingresa tu nombre: ");
         String nombreJugador = scanner.nextLine();
@@ -57,7 +57,7 @@ public class Menu {
                    }
                     break;
                 case 2:
-                    System.out.println("\nEstadísticas de " + nombreJugador);
+                    System.out.println("\nEstadisticas de " + nombreJugador);
                     System.out.println("Partidas jugadas: " + jugadas);
                     System.out.println("Partidas ganadas: " + ganadas);
                     System.out.println("Partidas perdidas: " + perdidas);
