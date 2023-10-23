@@ -33,11 +33,11 @@ public class Menu {
         }
 
         while (true) {
-            System.out.println("\nMenú:");
-            System.out.println("1. Jugar Adivina Quién");
-            System.out.println("2. Mostrar estadísticas");
+            System.out.println("\nMenu:");
+            System.out.println("1. Jugar Adivina Quien");
+            System.out.println("2. Mostrar estadisticas");
             System.out.println("3. Salir");
-            System.out.print("Selecciona una opción: ");
+            System.out.print("Selecciona una opcion: ");
 
             int opcion = scanner.nextInt();
 
@@ -52,7 +52,7 @@ public class Menu {
                    if (WinOrLose== true) {
                 	   ganadas++;
                    }
-                   else {
+                   if (WinOrLose==false) {
                 	   perdidas++;
                    }
                     break;
@@ -65,9 +65,9 @@ public class Menu {
                 case 3:
                     
                     try (BufferedWriter archivoWriter = new BufferedWriter(new FileWriter(archivoEstadisticas, true))) {
-                        boolean jugadorEncontrado = false;
-                        try (BufferedReader archivoReader = new BufferedReader(new FileReader(archivoEstadisticas))) {
-                            while ((linea = archivoReader.readLine()) != null) {
+                     boolean jugadorEncontrado = false;
+                     try (BufferedReader archivoReader = new BufferedReader(new FileReader(archivoEstadisticas))) {
+                     while ((linea = archivoReader.readLine()) != null) {
                                 if (linea.equals(nombreJugador)) {
                                     jugadorEncontrado = true;
                                     break;
@@ -89,13 +89,15 @@ public class Menu {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    System.out.println("¡Gracias por jugar! Hasta la próxima.");
+                    System.out.println("¡Gracias por jugar! ");
                     scanner.close();
                     System.exit(0);
                 default:
-                    System.out.println("Opción no válida. Por favor, elige una opción del menú.");
+                    System.out.println("Opcion no valida. Por favor, elige una opcion del menú.");
             }
         }
     }
 
 }
+
+     
