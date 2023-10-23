@@ -27,8 +27,8 @@ public class Menu {
                         break;
                     }
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (IOException imprime) {
+                imprime.printStackTrace();
             }
         }
 
